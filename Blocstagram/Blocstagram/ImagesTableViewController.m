@@ -25,7 +25,6 @@
     if (self) {
         // Custom initialization
         
-        
     }
     return self;
 }
@@ -58,11 +57,22 @@
 }
 
 #pragma mark - Table view data source
-
+-(NSMutableArray *) items{
+    NSMutableArray *item = [NSMutableArray array];
+    
+    for (int i =1; i <= 10; i++) {
+        NSString *imageName = [NSString stringWithFormat:@"%d.jpg", i];
+        UIImage *image = [UIImage imageNamed:imageName];
+        if (image) {
+            [item addObject:image];
+        }
+    }
+    return item;
+}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    return [DataSource sharedInstance].mediaItems.count;
+    return [self items].count;
     
 }
 
@@ -94,8 +104,8 @@
         [cell.contentView addSubview:imageView];
     }
     
-    Media *item = [DataSource sharedInstance].mediaItems[indexPath.row];
-    imageView.image = item.image;
+    UIImage *image = [self items][indexPath.row];
+    imageView.image = image;
     
 
     
@@ -103,8 +113,8 @@
 }
 
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    Media *item = [DataSource sharedInstance].mediaItems[indexPath.row];
-    UIImage *image = item.image;
+    UIImage *image = [self items][indexPath.row];
+    
     
     return image.size.height / image.size.width * CGRectGetWidth(self.view.frame);
 

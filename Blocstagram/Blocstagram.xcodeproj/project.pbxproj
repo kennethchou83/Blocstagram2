@@ -24,6 +24,10 @@
 		46E39A461D3EADFD0033AF93 /* 8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 46E39A3C1D3EADFD0033AF93 /* 8.jpg */; };
 		46E39A471D3EADFD0033AF93 /* 9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 46E39A3D1D3EADFD0033AF93 /* 9.jpg */; };
 		46E39A481D3EADFD0033AF93 /* 10.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 46E39A3E1D3EADFD0033AF93 /* 10.jpg */; };
+		46E39A4B1D3FF3BD0033AF93 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 46E39A4A1D3FF3BD0033AF93 /* User.m */; };
+		46E39A4E1D3FF4EF0033AF93 /* Media.m in Sources */ = {isa = PBXBuildFile; fileRef = 46E39A4D1D3FF4EF0033AF93 /* Media.m */; };
+		46E39A511D3FF6F70033AF93 /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = 46E39A501D3FF6F70033AF93 /* Comment.m */; };
+		46E39A541D3FF9F00033AF93 /* DataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 46E39A531D3FF9F00033AF93 /* DataSource.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +73,14 @@
 		46E39A3C1D3EADFD0033AF93 /* 8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 8.jpg; sourceTree = "<group>"; };
 		46E39A3D1D3EADFD0033AF93 /* 9.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 9.jpg; sourceTree = "<group>"; };
 		46E39A3E1D3EADFD0033AF93 /* 10.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 10.jpg; sourceTree = "<group>"; };
+		46E39A491D3FF3BD0033AF93 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		46E39A4A1D3FF3BD0033AF93 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		46E39A4C1D3FF4EF0033AF93 /* Media.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Media.h; sourceTree = "<group>"; };
+		46E39A4D1D3FF4EF0033AF93 /* Media.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Media.m; sourceTree = "<group>"; };
+		46E39A4F1D3FF6F70033AF93 /* Comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Comment.h; sourceTree = "<group>"; };
+		46E39A501D3FF6F70033AF93 /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
+		46E39A521D3FF9F00033AF93 /* DataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataSource.h; sourceTree = "<group>"; };
+		46E39A531D3FF9F00033AF93 /* DataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataSource.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +136,14 @@
 				46E39A021D3DBBF80033AF93 /* AppDelegate.m */,
 				46E39A311D3DC97D0033AF93 /* ImagesTableViewController.h */,
 				46E39A321D3DC97D0033AF93 /* ImagesTableViewController.m */,
+				46E39A4F1D3FF6F70033AF93 /* Comment.h */,
+				46E39A501D3FF6F70033AF93 /* Comment.m */,
+				46E39A4C1D3FF4EF0033AF93 /* Media.h */,
+				46E39A4D1D3FF4EF0033AF93 /* Media.m */,
+				46E39A491D3FF3BD0033AF93 /* User.h */,
+				46E39A4A1D3FF3BD0033AF93 /* User.m */,
+				46E39A521D3FF9F00033AF93 /* DataSource.h */,
+				46E39A531D3FF9F00033AF93 /* DataSource.m */,
 				46E39A0A1D3DBBF80033AF93 /* Assets.xcassets */,
 				46E39A0C1D3DBBF80033AF93 /* LaunchScreen.storyboard */,
 				46E39A0F1D3DBBF80033AF93 /* Info.plist */,
@@ -314,7 +334,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46E39A4B1D3FF3BD0033AF93 /* User.m in Sources */,
+				46E39A511D3FF6F70033AF93 /* Comment.m in Sources */,
+				46E39A4E1D3FF4EF0033AF93 /* Media.m in Sources */,
 				46E39A031D3DBBF80033AF93 /* AppDelegate.m in Sources */,
+				46E39A541D3FF9F00033AF93 /* DataSource.m in Sources */,
 				46E39A001D3DBBF80033AF93 /* main.m in Sources */,
 				46E39A331D3DC97D0033AF93 /* ImagesTableViewController.m in Sources */,
 			);

@@ -1,2 +1,2 @@
 # Blocstagram2
-checkpoint_27 completed
+made the image row deletable

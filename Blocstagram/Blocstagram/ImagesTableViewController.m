@@ -60,6 +60,7 @@
     
     MediaTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"mediaCell" forIndexPath:indexPath];
     cell.mediaItem = [DataSource sharedInstance].mediaItems[indexPath.row];
+    
     return cell;
 }
 

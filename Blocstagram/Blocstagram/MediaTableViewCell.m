@@ -118,20 +118,27 @@ static NSParagraphStyle *paragraphStyle2;
     NSMutableAttributedString *commentString = [[NSMutableAttributedString alloc] init];
     
     for (Comment *comment in self.mediaItem.comments) {
+        NSUInteger commentNumber = [self.mediaItem.comments indexOfObject:comment];
+        BOOL isOddNumberedComment = commentNumber % 2;
+        NSParagraphStyle *paragraph = isOddNumberedComment ? paragraphStyle : paragraphStyle2;
+        
         // Make a string that says "username comment" followed by a line break
         NSString *baseString = [NSString stringWithFormat:@"%@ %@\n", comment.from.userName, comment.text];
         // Make an attributed string, with the "username" bold
         
-        NSMutableAttributedString *oneCommentString = [[NSMutableAttributedString alloc] initWithString:baseString attributes:@{NSFontAttributeName : lightFont, NSParagraphStyleAttributeName : paragraphStyle2}];
+        NSMutableAttributedString *oneCommentString = [[NSMutableAttributedString alloc] initWithString:baseString attributes:@{NSFontAttributeName : lightFont, NSParagraphStyleAttributeName : paragraph}];
         
         
         NSRange usernameRange = [baseString rangeOfString:comment.from.userName];
         [oneCommentString addAttribute:NSFontAttributeName value:boldFont range:usernameRange];
         [oneCommentString addAttribute:NSForegroundColorAttributeName value:linkColor range:usernameRange];
         
-        NSRange commentTextRange = [baseString rangeOfString:comment.text];
-        [oneCommentString addAttribute:NSForegroundColorAttributeName value:[UIColor orangeColor] range:commentTextRange];
-        [oneCommentString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle2 range:commentTextRange];
+//        if (self.mediaItem.comments[0] == comment) {
+        if (commentNumber == 0) {
+            NSRange commentTextRange = [baseString rangeOfString:comment.text];
+            [oneCommentString addAttribute:NSForegroundColorAttributeName value:[UIColor orangeColor] range:commentTextRange];
+            [oneCommentString addAttribute:NSParagraphStyleAttributeName value:paragraph range:commentTextRange];
+        }
     
         [commentString appendAttributedString:oneCommentString];
         

@@ -57,17 +57,21 @@
 }
 
 #pragma mark - Table view data source
--(NSMutableArray *) items{
-    NSMutableArray *item = [NSMutableArray array];
-    
-    for (int i =1; i <= 10; i++) {
-        NSString *imageName = [NSString stringWithFormat:@"%d.jpg", i];
-        UIImage *image = [UIImage imageNamed:imageName];
-        if (image) {
-            [item addObject:image];
-        }
-    }
-    return item;
+//-(NSMutableArray *) items{
+//    NSMutableArray *item = [NSMutableArray array];
+//    
+//    for (int i =1; i <= 10; i++) {
+//        NSString *imageName = [NSString stringWithFormat:@"%d.jpg", i];
+//        UIImage *image = [UIImage imageNamed:imageName];
+//        if (image) {
+//            [item addObject:image];
+//        }
+//    }
+//    return item;
+//}
+
+-(NSArray *) items{
+    return [DataSource sharedInstance].mediaItems;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -104,7 +108,9 @@
         [cell.contentView addSubview:imageView];
     }
     
-    UIImage *image = [self items][indexPath.row];
+    Media *mediaItem = [self items][indexPath.row];
+    UIImage *image = mediaItem.image;
+
     imageView.image = image;
     
 
@@ -113,8 +119,8 @@
 }
 
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UIImage *image = [self items][indexPath.row];
-    
+    Media *mediaItem = [self items][indexPath.row];
+    UIImage *image = mediaItem.image;
     
     return image.size.height / image.size.width * CGRectGetWidth(self.view.frame);
 

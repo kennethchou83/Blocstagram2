@@ -39,7 +39,6 @@
     [[DataSource sharedInstance] addObserver:self forKeyPath:@"mediaItems" options:0 context:nil];
 
     [self.tableView registerClass:[MediaTableViewCell class] forCellReuseIdentifier:@"mediaCell"];
-
 }
 
 - (void) dealloc
@@ -111,6 +110,7 @@
     
     MediaTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"mediaCell" forIndexPath:indexPath];
     cell.mediaItem = [DataSource sharedInstance].mediaItems[indexPath.row];
+    
     return cell;
 }
 
@@ -137,6 +137,7 @@
         // Delete the row from the data source
         Media *item = [DataSource sharedInstance].mediaItems[indexPath.row];
         [[DataSource sharedInstance] deleteMediaItem:item];
+        
 
     
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {

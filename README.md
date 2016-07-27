@@ -1,2 +1,2 @@
 # Blocstagram2
-checkpoint_31 completed
+checkpoint_32 completed

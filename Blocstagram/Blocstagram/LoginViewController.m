@@ -25,6 +25,10 @@ NSString *const LoginViewControllerDidGetAccessTokenNotification = @"LoginViewCo
     UIWebView *webView = [[UIWebView alloc] init];
     webView.delegate = self;
     
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:self action:@selector(back)];
+    self.navigationItem.leftBarButtonItem = backButton;
+    
+    
     [self.view addSubview:webView];
     self.webView = webView;
     
@@ -38,6 +42,10 @@ NSString *const LoginViewControllerDidGetAccessTokenNotification = @"LoginViewCo
         [self.webView loadRequest:request];
     }
 
+}
+
+- (void) back {
+    [self.webView goBack];
 }
 - (void) dealloc {
     // Removing this line can cause a flickering effect when you relaunch the app after logging in, as the web view is briefly displayed, automatically authenticates with cookies, returns the access token, and dismisses the login view, sometimes in less than a second.

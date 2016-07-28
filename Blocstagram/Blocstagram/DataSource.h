@@ -14,9 +14,13 @@
 
 typedef void (^NewItemCompletionBlock)(NSError *error);
 
-+(instancetype) sharedInstance;
++ (instancetype) sharedInstance;
+
++ (NSString *) instagramClientID;
 
 @property (nonatomic, strong, readonly) NSArray *mediaItems;
+
+@property (nonatomic, strong, readonly) NSString *accessToken;
 
 - (void) deleteMediaItem:(Media *)item;
 

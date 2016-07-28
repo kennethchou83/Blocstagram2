@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4613F5261D493F9D006352E7 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4613F5251D493F9D006352E7 /* LoginViewController.m */; };
 		46E39A001D3DBBF80033AF93 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 46E399FF1D3DBBF80033AF93 /* main.m */; };
 		46E39A031D3DBBF80033AF93 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 46E39A021D3DBBF80033AF93 /* AppDelegate.m */; };
 		46E39A0B1D3DBBF80033AF93 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46E39A0A1D3DBBF80033AF93 /* Assets.xcassets */; };
@@ -49,6 +50,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4613F5241D493F9D006352E7 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		4613F5251D493F9D006352E7 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		46E399FB1D3DBBF80033AF93 /* Blocstagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blocstagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		46E399FF1D3DBBF80033AF93 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		46E39A011D3DBBF80033AF93 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -149,6 +152,8 @@
 				46E39A4A1D3FF3BD0033AF93 /* User.m */,
 				46E39A521D3FF9F00033AF93 /* DataSource.h */,
 				46E39A531D3FF9F00033AF93 /* DataSource.m */,
+				4613F5241D493F9D006352E7 /* LoginViewController.h */,
+				4613F5251D493F9D006352E7 /* LoginViewController.m */,
 				46E39A0A1D3DBBF80033AF93 /* Assets.xcassets */,
 				46E39A0C1D3DBBF80033AF93 /* LaunchScreen.storyboard */,
 				46E39A0F1D3DBBF80033AF93 /* Info.plist */,
@@ -344,6 +349,7 @@
 				46E39A571D404BF10033AF93 /* MediaTableViewCell.m in Sources */,
 				46E39A4E1D3FF4EF0033AF93 /* Media.m in Sources */,
 				46E39A031D3DBBF80033AF93 /* AppDelegate.m in Sources */,
+				4613F5261D493F9D006352E7 /* LoginViewController.m in Sources */,
 				46E39A541D3FF9F00033AF93 /* DataSource.m in Sources */,
 				46E39A001D3DBBF80033AF93 /* main.m in Sources */,
 				46E39A331D3DC97D0033AF93 /* ImagesTableViewController.m in Sources */,

@@ -111,7 +111,7 @@
         }
         
         [self populateDataWithParameters:parameters completionHandler:^(NSError *error) {
-            self.isRefreshing = NO;
+        self.isRefreshing = NO;
             
             if (completionHandler) {
                 completionHandler(error);

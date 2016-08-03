@@ -38,16 +38,6 @@ static NSParagraphStyle *paragraphStyle;
 //    // Initialization code
 //}
 
-- (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated {
-    [super setHighlighted:NO animated:animated];
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:NO animated:animated];
-
-    // Configure the view for the selected state
-}
-
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
@@ -219,6 +209,17 @@ static NSParagraphStyle *paragraphStyle;
     
     return CGRectGetMaxY(layoutCell.commentLabel.frame);
 }
+
+- (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated {
+    [super setHighlighted:NO animated:animated];
+}
+
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
+    [super setSelected:NO animated:animated];
+    
+    // Configure the view for the selected state
+}
+
 
 /*
 - (CGFloat) heightForMediaItemssssss:(Media *)mediaItem width:(CGFloat)width {

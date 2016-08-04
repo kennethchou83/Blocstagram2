@@ -15,7 +15,7 @@
 
 @property (nonatomic, strong) UITapGestureRecognizer *tap;
 @property (nonatomic, strong) UITapGestureRecognizer *doubleTap;
-
+//@property (nonatomic, strong) UIButton *buttonTapped;
 @end
 
 @implementation MediaFullScreenViewController
@@ -33,12 +33,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    
     // #1
     self.scrollView = [UIScrollView new];
     self.scrollView.delegate = self;
     self.scrollView.backgroundColor = [UIColor whiteColor];
     
     [self.view addSubview:self.scrollView];
+    
+    [self buttonTapped];
     
     // #2
     self.imageView = [UIImageView new];
@@ -58,7 +61,8 @@
     
     [self.scrollView addGestureRecognizer:self.tap];
     [self.scrollView addGestureRecognizer:self.doubleTap];
-}
+    
+    }
 
 
 - (void) viewWillLayoutSubviews {
@@ -76,6 +80,40 @@
     
     self.scrollView.minimumZoomScale = minScale;
     self.scrollView.maximumZoomScale = 1;
+}
+
+- (void)buttonTapped{
+   
+    
+    UIButton *shareButton = [UIButton buttonWithType:UIButtonTypeSystem];
+    [shareButton setTitle:@"Share" forState:UIControlStateNormal];
+    [shareButton sizeToFit];
+    [shareButton setFrame:CGRectMake(self.view.frame.size.width - shareButton.frame.size.width - 10 , 20, shareButton.frame.size.width, shareButton.frame.size.height)];
+    [shareButton addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.view addSubview:shareButton];
+    
+    
+}
+
+- (void) buttonPressed: (UIButton *)button{
+     NSMutableArray *buttonArray = [[NSMutableArray alloc] init];
+    [buttonArray addObject:button];
+    
+    UIActivityViewController *actvityVC = [[UIActivityViewController alloc] initWithActivityItems:buttonArray applicationActivities:nil];
+    actvityVC.excludedActivityTypes = [[NSArray alloc] initWithObjects:
+                                        UIActivityTypeCopyToPasteboard,
+                                        UIActivityTypePostToWeibo,
+                                        UIActivityTypePostToFacebook,
+                                        UIActivityTypeSaveToCameraRoll,
+                                        UIActivityTypeCopyToPasteboard,
+                                        UIActivityTypeMail,
+                                        UIActivityTypeMessage,
+                                        UIActivityTypeAssignToContact,
+                                        nil];
+   
+    [self presentViewController:actvityVC animated:YES completion:nil];
+
 }
 
 

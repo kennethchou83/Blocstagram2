@@ -245,9 +245,10 @@
             [tmpMediaItems addObject:mediaItem];
             
             [self downloadImageForMediaItem:mediaItem];
-
+            
         }
-        
+            [self requestNewItemsWithCompletionHandler:nil];
+
     }
     
     NSMutableArray *mutableArrayWithKVO = [self mutableArrayValueForKey:@"mediaItems"];

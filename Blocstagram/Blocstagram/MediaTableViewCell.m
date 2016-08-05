@@ -23,6 +23,7 @@
 
 @property (nonatomic, strong) UITapGestureRecognizer *tapGestureRecognizer;
 @property (nonatomic, strong) UILongPressGestureRecognizer *longPressGestureRecognizer;
+@property (nonatomic, strong) UITapGestureRecognizer *touchGestureRecognizer;
 
 
 @end
@@ -54,6 +55,11 @@ static NSParagraphStyle *paragraphStyle;
         self.tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapFired:)];
         self.tapGestureRecognizer.delegate = self;
         [self.mediaImageView addGestureRecognizer:self.tapGestureRecognizer];
+        
+        self.touchGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(touchFired:)];
+        self.touchGestureRecognizer.delegate = self;
+        self.touchGestureRecognizer.numberOfTouchesRequired = 2;
+        [self.mediaImageView addGestureRecognizer:self.touchGestureRecognizer];
         
         self.longPressGestureRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressFired:)];
         self.longPressGestureRecognizer.delegate = self;
@@ -142,6 +148,13 @@ static NSParagraphStyle *paragraphStyle;
     }
 }
 
+- (void) touchFired:(UITapGestureRecognizer *)sender {
+    if (sender.state == UIGestureRecognizerStateEnded) {
+        
+        [self.delegate cell:self didTouchImageView:self.mediaImageView];
+    
+    }
+}
 #pragma mark - UIGestureRecognizerDelegate
 
 - (BOOL) gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {

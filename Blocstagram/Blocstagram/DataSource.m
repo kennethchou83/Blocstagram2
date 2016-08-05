@@ -29,6 +29,8 @@
 
 @property (nonatomic, strong) AFHTTPRequestOperationManager *instagramOperationManager;
 
+@property (nonatomic, strong) UITapGestureRecognizer *doubleTouches;
+
 
 
 @end
@@ -296,9 +298,11 @@
                                         
                                     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                         NSLog(@"Error downloading image: %@", error);
-                                    }];    }
+                                    }];
+    }
 }
 
+         
 #pragma mark - NSKeyedArchiver
 
 - (NSString *) pathForFilename:(NSString *) filename {

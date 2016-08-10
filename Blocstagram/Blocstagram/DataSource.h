@@ -22,6 +22,7 @@ typedef void (^NewItemCompletionBlock)(NSError *error);
 
 @property (nonatomic, strong, readonly) NSString *accessToken;
 
+
 - (void) deleteMediaItem:(Media *)item;
 
 - (void) requestNewItemsWithCompletionHandler:(NewItemCompletionBlock)completionHandler;
@@ -32,4 +33,5 @@ typedef void (^NewItemCompletionBlock)(NSError *error);
 - (void) toggleLikeOnMediaItem:(Media *)mediaItem withCompletionHandler:(void (^)(void))completionHandler;
 
 
-@end
+
+    @end

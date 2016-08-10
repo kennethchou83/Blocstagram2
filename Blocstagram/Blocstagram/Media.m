@@ -56,6 +56,18 @@
     return self;
 }
 
+-(void) likesCount {
+    if (self.likeState == LikeStateLiked) {
+        
+        int i = [self.labelPressed intValue] ? [self.labelPressed intValue] : 0;
+        
+        i += 1;
+        
+        self.labelPressed = [NSNumber numberWithInt:i];
+
+    }
+
+}
 #pragma mark - NSCoding
 
 - (instancetype) initWithCoder:(NSCoder *)aDecoder {
@@ -78,7 +90,7 @@
         self.caption = [aDecoder decodeObjectForKey:NSStringFromSelector(@selector(caption))];
         self.comments = [aDecoder decodeObjectForKey:NSStringFromSelector(@selector(comments))];
         self.likeState = [aDecoder decodeIntegerForKey:NSStringFromSelector(@selector(likeState))];
-
+        self.labelPressed = [aDecoder decodeObjectForKey:NSStringFromSelector(@selector(labelPressed))];
     }
     
     return self;
@@ -92,7 +104,7 @@
     [aCoder encodeObject:self.caption forKey:NSStringFromSelector(@selector(caption))];
     [aCoder encodeObject:self.comments forKey:NSStringFromSelector(@selector(comments))];
     [aCoder encodeInteger:self.likeState forKey:NSStringFromSelector(@selector(likeState))];
-
+    [aCoder encodeObject:self.labelPressed forKey:NSStringFromSelector(@selector(labelPressed))];
 }
 
 @end

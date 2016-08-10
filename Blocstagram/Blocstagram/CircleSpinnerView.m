@@ -21,7 +21,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.strokeThickness = 1;
-        self.radius = 12;
+        self.radius = 25;
         self.strokeColor = [UIColor purpleColor];
     }
     return self;
@@ -57,7 +57,7 @@
         maskLayer.frame = _circleLayer.bounds;
         _circleLayer.mask = maskLayer;
         
-        CFTimeInterval animationDuration = 1;
+        CFTimeInterval animationDuration = 50;
         CAMediaTimingFunction *linearCurve = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
         
         CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"transform.rotation"];

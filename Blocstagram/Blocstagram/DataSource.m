@@ -95,46 +95,54 @@
 #pragma mark - Liking Media Items
 
 - (void) toggleLikeOnMediaItem:(Media *)mediaItem withCompletionHandler:(void (^)(void))completionHandler {
-    NSString *urlString = [NSString stringWithFormat:@"media/%@/likes", mediaItem.idNumber];
-    NSDictionary *parameters = @{@"access_token": self.accessToken};
+//    NSString *urlString = [NSString stringWithFormat:@"media/%@/likes", mediaItem.idNumber];
+//    NSDictionary *parameters = @{@"access_token": self.accessToken};
     
     if (mediaItem.likeState == LikeStateNotLiked) {
         
-        mediaItem.likeState = LikeStateLiking;
+        mediaItem.likeState = LikeStateLiked;
         
-        [self.instagramOperationManager POST:urlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            mediaItem.likeState = LikeStateLiked;
-            
-            if (completionHandler) {
-                completionHandler();
-            }
-        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            mediaItem.likeState = LikeStateNotLiked;
-            
-            if (completionHandler) {
-                completionHandler();
-            }
-        }];
+    
+        
+
+        
+//        [self.instagramOperationManager POST:urlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//            mediaItem.likeState = LikeStateLiking;
+//            
+//            if (completionHandler) {
+//                completionHandler();
+//            }
+//        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+//            mediaItem.likeState = LikeStateNotLiked;
+//            
+//            if (completionHandler) {
+//                completionHandler();
+//            }
+//        }];
         
     } else if (mediaItem.likeState == LikeStateLiked) {
-        
-        mediaItem.likeState = LikeStateUnliking;
-        
-        [self.instagramOperationManager DELETE:urlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            mediaItem.likeState = LikeStateNotLiked;
-            
-            if (completionHandler) {
-                completionHandler();
-            }
-        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            mediaItem.likeState = LikeStateLiked;
-            
-            if (completionHandler) {
-                completionHandler();
-            }
-        }];
+                mediaItem.likeState = LikeStateNotLiked;
+//
+//        [self.instagramOperationManager DELETE:urlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//            mediaItem.likeState = LikeStateNotLiked;
+//            
+//            if (completionHandler) {
+//                completionHandler();
+//            }
+//        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+//            mediaItem.likeState = LikeStateLiked;
+//            
+//            if (completionHandler) {
+//                completionHandler();
+//            }
+//        }];
     }
+    [mediaItem likesCount];
+    
 }
+
+
+
 
 #pragma mark - Key/Value Observing
 

@@ -1,1 +1,1 @@
-checkpoint_41 completed
+checkpoint_41 assignment completed

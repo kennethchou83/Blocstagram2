@@ -69,8 +69,10 @@ static NSString * const reuseIdentifier = @"Cell";
 - (void) viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
     
+
     CGFloat width = CGRectGetWidth(self.view.frame);
-    CGFloat minWidth = 100;
+    CGFloat minWidth = width/4;
+
     NSInteger divisor = width / minWidth;
     CGFloat cellSize = width / divisor;
     

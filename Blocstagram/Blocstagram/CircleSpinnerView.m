@@ -23,6 +23,7 @@
         self.strokeThickness = 1;
         self.radius = 12;
         self.strokeColor = [UIColor purpleColor];
+        //self.circleLayer = [self constructCircleLayer];
     }
     return self;
 }
@@ -31,8 +32,68 @@
     return CGSizeMake((self.radius+self.strokeThickness/2+5)*2, (self.radius+self.strokeThickness/2+5)*2);
 }
 
+//- (CAShapeLayer*)constructCircleLayer {
+//    CGPoint arcCenter = CGPointMake(self.radius+self.strokeThickness/2+5, self.radius+self.strokeThickness/2+5);
+//    CGRect rect = CGRectMake(0, 0, arcCenter.x*2, arcCenter.y*2);
+//    
+//    UIBezierPath* smoothedPath = [UIBezierPath bezierPathWithArcCenter:arcCenter
+//                                                                radius:self.radius
+//                                                            startAngle:M_PI*3/2
+//                                                              endAngle:M_PI/2+M_PI*5
+//                                                             clockwise:YES];
+//    CAShapeLayer *theLayerToReturn = [CAShapeLayer layer];
+//    theLayerToReturn.contentsScale = [[UIScreen mainScreen] scale];
+//    theLayerToReturn.frame = rect;
+//    theLayerToReturn.fillColor = [UIColor clearColor].CGColor;
+//    theLayerToReturn.strokeColor = self.strokeColor.CGColor;
+//    theLayerToReturn.lineWidth = self.strokeThickness;
+//    theLayerToReturn.lineCap = kCALineCapRound;
+//    theLayerToReturn.lineJoin = kCALineJoinBevel;
+//    theLayerToReturn.path = smoothedPath.CGPath;
+//    
+//    CALayer *maskLayer = [CALayer layer];
+//    maskLayer.contents = (id)[[UIImage imageNamed:@"angle-mask"] CGImage];
+//    maskLayer.frame = theLayerToReturn.bounds;
+//    theLayerToReturn.mask = maskLayer;
+//    
+//    CFTimeInterval animationDuration = 1;
+//    CAMediaTimingFunction *linearCurve = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
+//    
+//    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"transform.rotation"];
+//    animation.fromValue = @0;
+//    animation.toValue = @(M_PI*2);
+//    animation.duration = animationDuration;
+//    animation.timingFunction = linearCurve;
+//    animation.removedOnCompletion = NO;
+//    animation.repeatCount = INFINITY;
+//    animation.fillMode = kCAFillModeForwards;
+//    animation.autoreverses = NO;
+//    [theLayerToReturn.mask addAnimation:animation forKey:@"rotate"];
+//    
+//    CAAnimationGroup *animationGroup = [CAAnimationGroup animation];
+//    animationGroup.duration = animationDuration;
+//    animationGroup.repeatCount = INFINITY;
+//    animationGroup.removedOnCompletion = NO;
+//    animationGroup.timingFunction = linearCurve;
+//    
+//    CABasicAnimation *strokeStartAnimation = [CABasicAnimation animationWithKeyPath:@"strokeStart"];
+//    strokeStartAnimation.fromValue = @0.015;
+//    strokeStartAnimation.toValue = @0.515;
+//    
+//    CABasicAnimation *strokeEndAnimation = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
+//    strokeEndAnimation.fromValue = @0.485;
+//    strokeEndAnimation.toValue = @0.985;
+//    
+//    animationGroup.animations = @[strokeStartAnimation, strokeEndAnimation];
+//    [theLayerToReturn addAnimation:animationGroup forKey:@"progress"];
+//    
+//    return theLayerToReturn;
+//}
+
 - (CAShapeLayer*)circleLayer {
     if(!_circleLayer) {
+//        _circleLayer = [self constructCircleLayer];
+        
         CGPoint arcCenter = CGPointMake(self.radius+self.strokeThickness/2+5, self.radius+self.strokeThickness/2+5);
         CGRect rect = CGRectMake(0, 0, arcCenter.x*2, arcCenter.y*2);
         

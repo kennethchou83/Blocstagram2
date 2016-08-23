@@ -7,6 +7,7 @@
 //
 
 #import "PostToInstagramViewController.h"
+#import "SubClassOfCollectionViewCell.h"
 
 @interface PostToInstagramViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UIDocumentInteractionControllerDelegate>
 
@@ -34,8 +35,8 @@
     if (self) {
         self.sourceImage = sourceImage;
         self.previewImageView = [[UIImageView alloc]init];
-        self.previewImageView = [[UIImageView alloc] initWithImage:self.sourceImage];
-        
+//        self.previewImageView = [[UIImageView alloc] initWithImage:self.sourceImage];
+        self.previewImageView.image = self.sourceImage;
         self.photoFilterOperationQueue = [[NSOperationQueue alloc] init];
         
         UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
@@ -70,7 +71,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
     [self.view addSubview:self.previewImageView];
     [self.view addSubview:self.filterCollectionView];
     
@@ -80,7 +80,7 @@
         self.navigationItem.rightBarButtonItem = self.sendBarButton;
     }
     
-    [self.filterCollectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"cell"];
+    [self.filterCollectionView registerClass:[SubClassOfCollectionViewCell class] forCellWithReuseIdentifier:@"cell"];
     
     self.view.backgroundColor = [UIColor whiteColor];
     self.filterCollectionView.backgroundColor = [UIColor whiteColor];
@@ -142,36 +142,9 @@
 }
 
 - (UICollectionViewCell*) collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
-    
-    static NSInteger imageViewTag = 1000;
-    static NSInteger labelTag = 1001;
-    
-    UIImageView *thumbnail = (UIImageView *)[cell.contentView viewWithTag:imageViewTag];
-    UILabel *label = (UILabel *)[cell.contentView viewWithTag:labelTag];
-    
-    UICollectionViewFlowLayout *flowLayout = (UICollectionViewFlowLayout *)self.filterCollectionView.collectionViewLayout;
-    CGFloat thumbnailEdgeSize = flowLayout.itemSize.width;
-    
-    if (!thumbnail) {
-        thumbnail = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, thumbnailEdgeSize, thumbnailEdgeSize)];
-        thumbnail.contentMode = UIViewContentModeScaleAspectFill;
-        thumbnail.tag = imageViewTag;
-        thumbnail.clipsToBounds = YES;
+    SubClassOfCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
         
-        [cell.contentView addSubview:thumbnail];
-    }
-    
-    if (!label) {
-        label = [[UILabel alloc] initWithFrame:CGRectMake(0, thumbnailEdgeSize, thumbnailEdgeSize, 20)];
-        label.tag = labelTag;
-        label.textAlignment = NSTextAlignmentCenter;
-        label.font = [UIFont fontWithName:@"HelveticaNeue-Medium" size:10];
-        [cell.contentView addSubview:label];
-    }
-    
-    thumbnail.image = self.filterImages[indexPath.row];
-    label.text = self.filterTitles[indexPath.row];
+    [cell collectionView:(UICollectionView *)self.filterCollectionView.collectionViewLayout image:self.filterImages[indexPath.row] lableText:self.filterTitles[indexPath.row]];
     
     return cell;
 }
@@ -259,6 +232,17 @@
             [self addCIImageToCollectionView:moodyFilter.outputImage withFilterTitle:NSLocalizedString(@"Moody", @"Moody Filter")];
         }
     }];
+    
+    //assignment 43
+    
+    [self.photoFilterOperationQueue addOperationWithBlock:^{
+        CIFilter *blurFilter = [CIFilter filterWithName:@"CIGaussianBlur"];
+        
+        if (blurFilter) {
+            [blurFilter setValue:sourceCIImage forKey:kCIInputImageKey];
+            [self addCIImageToCollectionView:blurFilter.outputImage withFilterTitle:NSLocalizedString(@"Blur", @"Blur Filter")];
+        }
+    }];
     // Drunk filter
     
     [self.photoFilterOperationQueue addOperationWithBlock:^{
@@ -280,6 +264,24 @@
             }
             
             [self addCIImageToCollectionView:result withFilterTitle:NSLocalizedString(@"Drunk", @"Drunk Filter")];
+        }
+    }];
+    
+    //assignment 43
+    
+    [self.photoFilterOperationQueue addOperationWithBlock:^{
+        CIFilter *gloomFilter = [CIFilter filterWithName:@"CIGloom"];
+        CIFilter *vortexFilter = [CIFilter filterWithName:@"CIVortexDistortion"];
+        if (gloomFilter) {
+            [gloomFilter setValue:sourceCIImage forKey:kCIInputImageKey];
+            
+            CIImage *result = gloomFilter.outputImage;
+            
+            if (vortexFilter) {
+                [vortexFilter setValue:result forKeyPath:kCIInputImageKey];
+                result = vortexFilter.outputImage;
+            }
+            [self addCIImageToCollectionView:result withFilterTitle:NSLocalizedString(@"Mix", @"Mix Filter")];
         }
     }];
     // Film filter

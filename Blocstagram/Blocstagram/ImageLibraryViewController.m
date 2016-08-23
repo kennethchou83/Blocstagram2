@@ -48,6 +48,20 @@ static NSString * const reuseIdentifier = @"Cell";
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
+//    BOOL a = YES;
+//    BOOL b = NO;
+//    
+//    if (a) {
+//        // runs if a is true
+//        NSLog(@"a is true");
+//        if (b) {
+//            // runs if a AND b are both true
+//            NSLog(@"b is true");
+//        }
+//    } else if (b) {
+//        // runs if a is false and b is true
+//    }
+    
     if ([PHPhotoLibrary authorizationStatus] == PHAuthorizationStatusNotDetermined) {
         [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
             if ([PHPhotoLibrary authorizationStatus] == PHAuthorizationStatusAuthorized) {

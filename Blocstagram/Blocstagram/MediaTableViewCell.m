@@ -182,7 +182,7 @@ static NSParagraphStyle *paragraphStyle;
     
     self.usernameAndCaptionLabelHeightConstraint.constant = usernameLabelSize.height + 20;
     self.commentLabelHeightConstraint.constant = commentLabelSize.height + 20;
-    self.imageHeightConstraint.constant = 100 * 100;
+    self.imageHeightConstraint.constant = 100;
 //    self.imageHeightConstraint.constant = self.mediaItem.image.size.height / self.mediaItem.image.size.width * CGRectGetWidth(self.contentView.bounds);
     
     

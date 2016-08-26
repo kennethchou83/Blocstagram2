@@ -154,6 +154,7 @@
     UIImageView *thumbnail = (UIImageView *)[cell.contentView viewWithTag:imageViewTag];
     UILabel *label = (UILabel *)[cell.contentView viewWithTag:labelTag];
     
+
     UICollectionViewFlowLayout *flowLayout = (UICollectionViewFlowLayout *)self.filterCollectionView.collectionViewLayout;
     CGFloat thumbnailEdgeSize = flowLayout.itemSize.width;
     

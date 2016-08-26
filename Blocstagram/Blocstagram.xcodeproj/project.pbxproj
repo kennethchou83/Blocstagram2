@@ -20,6 +20,9 @@
 		4683AC1B1D65149100CCB84B /* ImageLibraryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4683AC1A1D65149100CCB84B /* ImageLibraryViewController.m */; };
 		4683AC1E1D66789100CCB84B /* PostToInstagramViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4683AC1D1D66789100CCB84B /* PostToInstagramViewController.m */; };
 		4683AC261D6D364000CCB84B /* UserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4683AC251D6D364000CCB84B /* UserTests.m */; };
+		4683AC2A1D6FF66800CCB84B /* MediaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4683AC291D6FF66800CCB84B /* MediaTests.m */; };
+		4683AC2C1D6FF70A00CCB84B /* ComposeCommentViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4683AC2B1D6FF70A00CCB84B /* ComposeCommentViewTests.m */; };
+		4683AC2E1D6FF87800CCB84B /* TableViewCellHeightTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4683AC2D1D6FF87800CCB84B /* TableViewCellHeightTests.m */; };
 		46E39A001D3DBBF80033AF93 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 46E399FF1D3DBBF80033AF93 /* main.m */; };
 		46E39A031D3DBBF80033AF93 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 46E39A021D3DBBF80033AF93 /* AppDelegate.m */; };
 		46E39A0B1D3DBBF80033AF93 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46E39A0A1D3DBBF80033AF93 /* Assets.xcassets */; };
@@ -91,6 +94,9 @@
 		4683AC1C1D66789100CCB84B /* PostToInstagramViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostToInstagramViewController.h; sourceTree = "<group>"; };
 		4683AC1D1D66789100CCB84B /* PostToInstagramViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostToInstagramViewController.m; sourceTree = "<group>"; };
 		4683AC251D6D364000CCB84B /* UserTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserTests.m; sourceTree = "<group>"; };
+		4683AC291D6FF66800CCB84B /* MediaTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaTests.m; sourceTree = "<group>"; };
+		4683AC2B1D6FF70A00CCB84B /* ComposeCommentViewTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComposeCommentViewTests.m; sourceTree = "<group>"; };
+		4683AC2D1D6FF87800CCB84B /* TableViewCellHeightTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewCellHeightTests.m; sourceTree = "<group>"; };
 		46E399FB1D3DBBF80033AF93 /* Blocstagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blocstagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		46E399FF1D3DBBF80033AF93 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		46E39A011D3DBBF80033AF93 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -249,6 +255,9 @@
 				46E39A181D3DBBF80033AF93 /* BlocstagramTests.m */,
 				46E39A1A1D3DBBF80033AF93 /* Info.plist */,
 				4683AC251D6D364000CCB84B /* UserTests.m */,
+				4683AC291D6FF66800CCB84B /* MediaTests.m */,
+				4683AC2B1D6FF70A00CCB84B /* ComposeCommentViewTests.m */,
+				4683AC2D1D6FF87800CCB84B /* TableViewCellHeightTests.m */,
 			);
 			path = BlocstagramTests;
 			sourceTree = "<group>";
@@ -504,8 +513,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4683AC2A1D6FF66800CCB84B /* MediaTests.m in Sources */,
+				4683AC2E1D6FF87800CCB84B /* TableViewCellHeightTests.m in Sources */,
 				4683AC261D6D364000CCB84B /* UserTests.m in Sources */,
 				46E39A191D3DBBF80033AF93 /* BlocstagramTests.m in Sources */,
+				4683AC2C1D6FF70A00CCB84B /* ComposeCommentViewTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
